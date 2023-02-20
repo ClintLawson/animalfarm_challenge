@@ -1,5 +1,4 @@
-# animalfarm_challenge
-animalfarm_challenge
+# Weather App Challenge
 
 Setup:
 1. Go to openweathermap.org and retrieve or create an api key
@@ -11,7 +10,7 @@ TODO'S:
 *Backend*
 [x] - complete the endpoint on express that will serve the html
 [x] - complete the city-search/ endpoint for getting locations based on the user query. Should return location name and latitude/longitude
-[] - complete the weather-5day/ endpoint that will return the weather forecast for the next 5 days.
+[x] - complete the weather-5day/ endpoint that will return the weather forecast for the next 5 days.
 [] - change the secrets file to a json file rather than a js file
 
 *Frontend*
