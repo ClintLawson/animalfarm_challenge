@@ -1,0 +1,28 @@
+{
+  "name": "animalfarm_challenge",
+  "version": "1.0.0",
+  "description": "weather app to display my technical capabitilities",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "debug": "nodemon --inspect app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClintLawson/animalfarm_challenge.git"
+  },
+  "author": "Clint Lawson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClintLawson/animalfarm_challenge/issues"
+  },
+  "homepage": "https://github.com/ClintLawson/animalfarm_challenge#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
