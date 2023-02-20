@@ -2,7 +2,7 @@
 
 Setup:
 1. Go to openweathermap.org and retrieve or create an api key
-2. create a js file named secrets that exports a json object that includes the key as openweathermap_api_key with your api key as the value.
+2. create a file named secrets.js which exports a json object that includes the key as openweathermap_api_key with your api key as the value.
 3. npm install 
 4. npm run start
 
