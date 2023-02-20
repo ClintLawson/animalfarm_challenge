@@ -15,8 +15,6 @@ app.get('/', (req, res) => {
 
 app.get('/api/city-search/:cityName', async (req, res) => {
     try{
-        console.log("________app.get()")
-
         let city = req.params.cityName;
         const result = await cityGeolocateApi(apiKey, city);
 
@@ -29,8 +27,6 @@ app.get('/api/city-search/:cityName', async (req, res) => {
 
 app.get('/api/weather-5day/:latitude/:longitude', async (req, res) => {
     try{
-        console.log("________app.get()")
-
         const lat = req.params.latitude;
         const lon = req.params.longitude;
 

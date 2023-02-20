@@ -1,8 +1,6 @@
 const { getAvg,getMin,getMax,getMode } = require('./utiliities')
 
 async function cityGeolocateApi(apiKey, city, limit=5){
-    console.log("________cityGeolocateApi()");
-
     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${apiKey}`
     const result = await fetch(url)
         .then(response => response.json())
@@ -25,8 +23,6 @@ async function cityGeolocateApi(apiKey, city, limit=5){
 }
 
 async function weatherApi(apiKey, latitude, longitude){
-    console.log("________weatherapi()");
-
     const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=standard&exlude=hourly,current,minutely,alerters&appid=${apiKey}`
     const result = await fetch(url)
         .then(response => response.json())
@@ -68,6 +64,12 @@ function mapWeatherApiData(data){
             return dictionaries;
         }, []);
 
+        function formatIconUrl(iconVal){
+            var newIconVal = iconVal.slice(0, -1).concat('d');
+            var url = `https://openweathermap.org/img/wn/${newIconVal}@2x.png`;
+            return url;
+        }
+
         // calculate the overview values for each date
         let result = groupRecordsByDate.map(x => ({
             "date":x.date,
@@ -80,8 +82,7 @@ function mapWeatherApiData(data){
             "weatherModeId":getMode(x.records.map(r => r.weather[0].id)),
             "weatherModeMain":getMode(x.records.map(r => r.weather[0].main)),
             "weatherModeDescript":getMode(x.records.map(r => r.weather[0].description)),
-            // weatherModeIcon can be used to get the icon from `http://openweathermap.org/img/wn/${--icon var here--}@2x.png`
-            "weatherModeIcon":getMode(x.records.map(r => r.weather[0].icon.slice(0, -1).concat('d'))),
+            "weatherModeIcon":getMode(x.records.map(r => formatIconUrl(r.weather[0].icon))),
             "records": x.records
         }));
 
