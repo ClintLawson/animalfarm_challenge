@@ -1,0 +1,245 @@
+body {
+  margin: 0px;
+}
+
+.primary{
+  background-color: #7d90ad;
+  color: #333333;
+}
+.primary-font{
+  color: #333333;
+}
+.secondary{
+  background-color: #a4c0ed ;
+  color:rgb(101, 105, 108);
+}
+.secondary-font{
+  color:rgb(101, 105, 108);
+}
+.accent{
+  background-color: #3e5c88;
+  color: white;
+}
+.accent-font{
+  color: white;
+}
+
+/*SEARCH-BAR*/
+.search-bar {
+  width: 100%;
+  height: 25px; 
+  overflow: visible;
+}
+.search-bar input {
+  width: calc(100% - 15px);
+  padding: 3px 6px;
+  position: relative;
+}
+.search-bar-results {
+  width: 100%;
+  max-height: 77px;
+  overflow-y: scroll;
+  background-color: white;
+  color:#3e5c88;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
+}
+.search-bar-results div {
+  position: relative;
+  z-index: 100;
+  width: calc(100% - 10px);
+  padding: 2px 5px;
+  transition: background-color 0.1s ease-in-out;
+}
+.search-bar div div:hover {
+  background-color: rgb(165, 183, 201);
+  color: white;
+  cursor: pointer;
+}
+.search-bar div div:active {
+  background-color: grey;
+  color: white;
+}
+
+.box-shadow-1{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/*CONTAINER*/
+.container {
+  margin: 5px auto;
+  padding: 5px 15px;
+  position: relative;
+  z-index: -100;
+}
+
+/*ROW COLUMN SETUP*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px; /* Negative margin to counteract padding on child columns */
+  padding: 7px 15px;
+}
+.col {
+  flex: 1;
+  padding: 0 15px; /* Padding on each column */
+}
+.col-1 {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+.col-2 {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+.col-3 {
+  flex-basis: 33.33%;
+  max-width: 33.33%;
+}
+.col-4 {
+  flex-basis: 25%;
+  max-width: 25%;
+}
+.col-5 {
+  flex-basis: 20%;
+  max-width: 20%;
+}
+.col-6 {
+  flex-basis: 16.67%;
+  max-width: 16.67%;
+}
+
+/* Media queries to adjust column widths for different screen sizes */
+/* Small screens (up to 576px) */
+@media (max-width: 576px) {
+  .col-sm-1 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .col-sm-2 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .col-sm-3 {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+  .col-sm-4 {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+  .col-sm-5 {
+    flex-basis: 20%;
+    max-width: 20%;
+  }
+  .col-sm-6 {
+    flex-basis: 16.67%;
+    max-width: 16.67%;
+  }
+}
+/* Medium screens (between 576px and 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .col-m-1 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .col-m-2 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .col-m-3 {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+  .col-m-4 {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+  .col-m-5 {
+    flex-basis: 20%;
+    max-width: 20%;
+  }
+  .col-m-6 {
+    flex-basis: 16.67%;
+    max-width: 16.67%;
+  }
+}
+/* Large screens (between 768px and 992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .col-lg-1 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .col-lg-2 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .col-lg-3 {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+  .col-lg-4 {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+  .col-lg-5 {
+    flex-basis: 20%;
+    max-width: 20%;
+  }
+  .col-lg-6 {
+    flex-basis: 16.67%;
+    max-width: 16.67%;
+  }
+}
+/* Extra large screens (above 992px) */
+@media (min-width: 992px) {
+  .col-xl-1 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .col-xl-2 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .col-xl-3 {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+  .col-xl-4 {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+  .col-xl-5 {
+    flex-basis: 20%;
+    max-width: 20%;
+  }
+  .col-xl-6 {
+    flex-basis: 16.67%;
+    max-width: 16.67%;
+  }
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center; /* centers vertically */
+}
+.vertical-top {
+  display: flex;
+  align-items: flex-start; /* aligns to top */
+}
+.vertical-bottom {
+  display: flex;
+  align-items: flex-end; /* aligns to bottom */
+}
+
+.horizontal-center {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+}
+.horizontal-left {
+  display: flex;
+  justify-content: flex-start; /* aligns to left */
+}
+.horizontal-right {
+  display: flex;
+  justify-content: flex-end; /* aligns to right */
+}
