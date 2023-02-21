@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
     <title>CB's Weather App!</title>
 </head>
 <body class="primary">
@@ -23,7 +24,7 @@
 
                         <div id="search-bar" class="search-bar">
                             <input id="search-bar-input" placeholder="search locations"/>
-                            <div id="search-results" class="search-bar-results"/>
+                            <div id="search-results" class="search-bar-results"></div>
                         </div>
 
                     </div>
@@ -37,80 +38,16 @@
 
     <main >
         <div class="container">
-            <h1 id="location-title" class="primary-font"></h1>
+            <h2 id="location-title" class="primary-font"></h2>
             <div id="weather-data-container"></div>
         </div>
 
     </main>
 
     <footer></footer>
-
-    <script>
-        //--------- UTILITIES -------
-        const debounce = (callback, wait) => {
-            let timeoutId = null;
-
-            return (...args) => {
-                window.clearTimeout(timeoutId);
-                timeoutId = window.setTimeout(() => {
-                    callback.apply(null, args);
-                }, wait);
-            };
-        }
-    </script>
-
-    <script>
-        //-------- SEARCH-BAR -----------
-
-        async function apiCityOptions(city){
-            if(city == "" || city == null){ return []}
-
-            const url = `http://localhost:3000/api/city-search/${city}`
-            const result = fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    return data;
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-            return result;
-        }
-
-        function updateCityOptions(city){
-            apiCityOptions(city).then( (data) => {
-                const optionsParent = document.getElementById('search-results')
-                const optionsChildren = data?.map(co => {
-                    return `<div onclick="updateWeatherData(${co.latitude},${co.longitude})">${co.city}, ${co.state}, ${co.country}</div>`
-                })
-                optionsParent.innerHTML = optionsChildren.join('')
-            })
-        }
-
-        const cityOptionsDebounced = debounce(updateCityOptions, 500);
-
-        // assign event to city search component
-        const searchBarInput = document.getElementById('search-bar-input')
-        const searchResultDiv = document.getElementById('search-results')
-
-        searchBarInput.addEventListener('input', (event) => {
-            var val = event.target.value
-            cityOptionsDebounced(val)
-        });
-
-        searchBarInput.addEventListener('blur', (e) => {
-            // must set timeout inorder to let click events fire first
-            window.setTimeout(() => {
-                searchResultDiv.hidden = true;
-            }, 750);
-        })
-
-        searchBarInput.addEventListener('focus', () => {
-            searchResultDiv.hidden = false;
-        })
-
-    </script>
-
-
+    
+    <script src="scripts/utilities.js"></script>
+    <script src="scripts/city-search.js"></script>
+    <script src="scripts/weather-data.js"></script>
 </body>
 </html>
